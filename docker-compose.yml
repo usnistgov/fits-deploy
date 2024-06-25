@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  fits-webapp:
+    image: nist775hit/fits-webapp:latest
+    environment:
+      - FITS_MONGO_HOST=fits-mongodb
+      - FITS_MONGO_PORT=27017
+      - FITS_MONGO_DB_NAME=cdsi-db
+      - FITS_ADAPTER_URL=http://fits-fhir-adapter:8080/fhirAdapter/fhir/Parameters/$$cds-forecast
+    env_file:
+      - fits-webapp-config.env
+    ports:
+      - 8080:8080
+    depends_on:
+      - fits-mongodb
+      - fits-fhir-adapter
+  fits-fhir-adapter:
+    image: nist775hit/fits-fhir-adapter:latest
+  fits-mongodb:
+    image: mongodb/mongodb-community-server:4.4.29-ubuntu2004
