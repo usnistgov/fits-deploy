@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   fits-webapp:
     image: nist775hit/fits-webapp:latest

@@ -15,7 +15,7 @@ Port **8080** is exposed from this container to port **8080**
 
 **Environment Variables**
 
-FITS Web App reads environement variables to configure the instance,
+FITS Web App reads environment variables to configure the instance,
 when using the provided docker-compose files, the environment variables are read from file "fits-webapp-config.env" in the same folder as the docker compose file.
 
 | Variable Name | Description |  |
@@ -54,4 +54,12 @@ MongoDB persists data to folder **/data/db/** in this container, to persist data
       - local_path:/data/db/
 ```
 
+## Getting Started
 
+1. Set up the environment by modifying the fits-webapp-config.env file
+   1. Configure admin user (Recommended for first use - discard the variables after admin user is created after first use)
+   2. Configure email server (Optional)
+2. Mount a volumn to "fits-mongodb" service to persist the database outside the container (see above service fits-mongodb)
+3. Make sure port 8080 is available on host machine
+4. Run `docker compose up`
+5. You can run `docker compose down` to shutdown the services
