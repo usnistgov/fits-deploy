@@ -62,4 +62,5 @@ MongoDB persists data to folder **/data/db/** in this container, to persist data
 2. Mount a volumn to "fits-mongodb" service to persist the database outside the container (see above service fits-mongodb)
 3. Make sure port 8080 is available on host machine
 4. Run `docker compose up`
-5. You can run `docker compose down` to shutdown the services
+5. Open [HOST]:8080/fits in the browser
+6. You can run `docker compose down` to shutdown the services
